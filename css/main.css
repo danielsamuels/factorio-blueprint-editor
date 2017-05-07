@@ -1,0 +1,63 @@
+html {
+  color: #fff;
+}
+
+body {
+  background: black;
+}
+
+.lyt-Columns { display: flex }
+
+.lyt-Column { flex: 1 }
+
+.frm-Input_Textarea {
+  width: 100%;
+  height: 50px;
+}
+
+.lyt-Grid_Row {
+  display: flex;
+}
+
+.lyt-Grid_Column {
+  width: 32px;
+  height: 32px;
+}
+
+.ent-Entity {
+  width: 32px;
+  height: 32px;
+}
+
+.ent-Entity span {
+  display: none;
+}
+
+.ent-Entity-assembling-machine-1 {
+  width: 216px;
+  height: 228px;
+  background-position: left top;
+  background-image: url(/img/hr-assembling-machine-1.png);
+  /*background-size: 864px 456px;*/
+  background-repeat: no-repeat;
+  animation: assembling-machine-1-horizontal calc(60s/32/4) steps(8) infinite,
+             assembling-machine-1-vertical calc(60s/32) steps(4) infinite;
+}
+
+@keyframes assembling-machine-1-horizontal {
+  /*
+  frame_count = 32,
+  line_length = 8,
+  */
+  /*to { background-position-x: -864px; }*/
+  to { background-position-x: -1712px; }
+}
+
+@keyframes assembling-machine-1-vertical {
+  /*
+  frame_count = 32,
+  line_length = 8,
+  */
+  /*to { background-position-y: -456px; }*/
+  to { background-position-y: -904px; }
+}

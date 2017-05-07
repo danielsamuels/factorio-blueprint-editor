@@ -5,34 +5,49 @@
   <title>Factorio Blueprint Editor</title>
   <base href="./">
 
-  <style>
-  html, img, video {
-    -webkit-filter: invert(1) hue-rotate(180deg);
-    filter: invert(1) hue-rotate(180deg);
-  }
-
-  body {
-    background: black;
-  }
-</style>
+  <link rel="stylesheet" href="/css/main.css">
 
   <!--
   One of the main aims of this project is to run fully in-browser through
   Github pages.  This means we can't require npm installs, can't rely on
   having a persistant datastore etc.
   -->
-
-  <!-- Remote vendor JS files -->
-  <script src="https://unpkg.com/vue"></script>
-
-  <!-- Local vendor JS files -->
   <script data-main="js/main" src="/js/vendor/require.js"></script>
+
+  <!-- Vue components z-->
+  <script type="text/x-template" id="blueprint">
+    <div class="lyt-Blueprint">
+      <hr>
+      <div class="lyt-Grid_Row" v-for="row in maxY">
+        <div class="lyt-Grid_Column" v-for="column in maxX">
+          <entity :entity="entityLocations[column][row]" v-if="entityLocations[column] && entityLocations[column][row]"></entity>
+        </div>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-template" id="entity">
+    <div class="ent-Entity" :style=style>
+      <span>{{ entity }}</span>
+    </div>
+  </script>
 </head>
 <body>
-  <textarea class="js-String-Input" cols="30" rows="5"></textarea>
-  <div class="js-String-Debug"></div>
+  <div id="app">
+    <header class="hd-Header">
+      <div class="lyt-Columns">
+        <div class="lyt-Column">
+          <h3>String import</h3>
+          <textarea class="frm-Input_Textarea" ref="import" @change=importString>0eNqV1NFqgzAUBuB3OdcRkix1M68yytD2bAQ0SpKOiuTda2o7xjhOcyVR8+XnV84ETXvBwRkbQE9gTr31oN8n8ObL1m26F8YBQYMJ2AEDW3dpFVxt/dC7UDTYBogMjD3jFbSIbHPzZ+1DsSrIeGSANphgcMlyX4wf9tI16OYj1lIwGHo/b+ttOnqmCslgTJeYUv1h5G6GPxUGZ+PwtDxShPmyP5ogUUmgajdKmyVhHv79GGtFcqrHMo/iD2mzy9fMiIKCqT7f8mDSpTqtfly8Dg6931sr+XsKns3xh7ZZrRD5UQWFU/UKmY2TdpnmwH1w6F9DisE3Or+8oJQ88KqSpYrxBmATnIU=</textarea>
+          <button @click=importString>Import string</button>
+        </div>
+      </div>
+    </header>
 
-  <!-- Vue Component which will basically do everything -->
-  <!-- <editor></editor> -->
+    <!-- Vue Component which will basically do everything -->
+    <blueprint v-if="blueprints.length" :entity-locations="blueprint[0]" :max-x="blueprint[1]" :max-y="blueprint[2]" v-for="blueprint in blueprints"></blueprint>
+  </div>
+
+  <!--<div class="ent-Entity-assembling-machine-1"></div>-->
 </body>
 </html>
