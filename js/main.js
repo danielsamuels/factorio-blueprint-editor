@@ -37,7 +37,7 @@ requirejs([
 
                 return {
                     'transform': `rotate(${rotation}deg)`,
-                    'background-image': `url(/img/icons/${this.entity.name}.png)`
+                    'background-image': `url(img/icons/${this.entity.name}.png)`
                 }
             }
         }

@@ -34,10 +34,11 @@ body {
 }
 
 .ent-Entity-assembling-machine-1 {
+  display: none;
   width: 216px;
   height: 228px;
   background-position: left top;
-  background-image: url(/img/hr-assembling-machine-1.png);
+  background-image: url(img/hr-assembling-machine-1.png);
   /*background-size: 864px 456px;*/
   background-repeat: no-repeat;
   animation: assembling-machine-1-horizontal calc(60s/32/4) steps(8) infinite,
