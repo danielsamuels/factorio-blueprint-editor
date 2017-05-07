@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Factorio Blueprint Editor</title>
+  <base href="./">
+
+  <style>
+  html, img, video {
+    -webkit-filter: invert(1) hue-rotate(180deg);
+    filter: invert(1) hue-rotate(180deg);
+  }
+
+  body {
+    background: black;
+  }
+</style>
+
+  <!--
+  One of the main aims of this project is to run fully in-browser through
+  Github pages.  This means we can't require npm installs, can't rely on
+  having a persistant datastore etc.
+  -->
+
+  <!-- Remote vendor JS files -->
+  <script src="https://unpkg.com/vue"></script>
+
+  <!-- Local vendor JS files -->
+  <script data-main="js/main" src="/js/vendor/require.js"></script>
+</head>
+<body>
+  <textarea class="js-String-Input" cols="30" rows="5"></textarea>
+  <div class="js-String-Debug"></div>
+
+  <!-- Vue Component which will basically do everything -->
+  <!-- <editor></editor> -->
+</body>
+</html>
